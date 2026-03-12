@@ -87,7 +87,7 @@ export default function App() {
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[#1E2A44]/70">
             <a href="#features" className="hover:text-[#FF8A3D] transition-colors">Features</a>
-            <a href="#destinations" className="hover:text-[#FF8A3D] transition-colors">Destinations</a>
+            <a href="#destinations" className="hover:text-[#FF8A3D] transition-colors">My Destinations</a>
             <a href="#about" className="hover:text-[#FF8A3D] transition-colors">About</a>
           </div>
           <div className="flex items-center gap-3">
