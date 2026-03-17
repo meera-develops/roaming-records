@@ -35,12 +35,12 @@ function FlightPath({ className = '' }) {
 function FeatureCard({ icon, title, desc, delay = '0ms' }) {
   return (
     <div
-      className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-md border border-white/80 flex flex-col gap-3 animate-fade-in-up"
+      className="bg-white/70 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-md border border-white/80 dark:border-white/10 flex flex-col gap-3 animate-fade-in-up"
       style={{ animationDelay: delay, opacity: 0 }}
     >
       <div className="text-4xl">{icon}</div>
-      <h3 className="text-xl font-bold text-navy">{title}</h3>
-      <p className="text-navy/70 text-sm leading-relaxed">{desc}</p>
+      <h3 className="text-xl font-bold text-navy dark:text-cream">{title}</h3>
+      <p className="text-navy/70 dark:text-cream/60 text-sm leading-relaxed">{desc}</p>
     </div>
   )
 }
@@ -54,14 +54,14 @@ export default function App() {
       <section className="relative w-full px-8 md:px-16 pt-20 pb-12 md:pt-28 md:pb-16 flex flex-col md:flex-row items-center gap-12">
         {/* Hero text */}
         <div className="flex-1 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 bg-sky/10 text-sky text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-sky/10 dark:bg-sky/25 text-sky dark:text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
             ✈ Your travel story, on vinyl
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-navy">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-navy dark:text-cream">
             Every trip is
             <span className="block text-orange">a new track.</span>
           </h1>
-          <p className="text-lg text-navy/65 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+          <p className="text-lg text-navy/65 dark:text-cream/65 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
             Log your adventures, curate your wishlist, and discover the world — all in one place.
             Roaming Records is the travel diary with a groove.
           </p>
@@ -69,7 +69,7 @@ export default function App() {
             <button className="bg-orange hover:bg-[#e07030] text-white font-semibold px-8 py-4 rounded-full transition-colors shadow-md text-base">
               Start Your Journey
             </button>
-            <button className="border-2 border-navy/20 hover:border-sky text-navy font-semibold px-8 py-4 rounded-full transition-colors text-base">
+            <button className="border-2 border-navy/20 dark:border-cream/20 hover:border-sky text-navy dark:text-cream font-semibold px-8 py-4 rounded-full transition-colors text-base">
               Explore Destinations
             </button>
           </div>
@@ -80,7 +80,7 @@ export default function App() {
           <div className="relative">
             <Vinyl size={280} className="animate-spin-slow drop-shadow-2xl" />
             {/* Floating badges */}
-            <div className="absolute -top-4 -right-6 bg-white rounded-xl shadow-lg px-3 py-2 text-xs font-semibold text-navy animate-float">
+            <div className="absolute -top-4 -right-6 bg-white dark:bg-dark-surface rounded-xl shadow-lg px-3 py-2 text-xs font-semibold text-navy dark:text-cream animate-float">
               📍 Tokyo added!
             </div>
             <div className="absolute -bottom-2 -left-8 bg-sky rounded-xl shadow-lg px-3 py-2 text-xs font-semibold text-white animate-float" style={{ animationDelay: '1.5s' }}>
@@ -101,10 +101,10 @@ export default function App() {
       {/* ── FEATURES ── */}
       <section id="features" className="w-full px-8 md:px-16 py-20">
         <div className="text-center mb-14">
-          <h2 className="text-4xl font-extrabold text-navy mb-4">
+          <h2 className="text-4xl font-extrabold text-navy dark:text-cream mb-4">
             Drop the needle on your next adventure
           </h2>
-          <p className="text-navy/60 max-w-xl mx-auto">
+          <p className="text-navy/60 dark:text-cream/60 max-w-xl mx-auto">
             Everything you need to document, plan, and share your travels — pressed into one beautifully simple app.
           </p>
         </div>
@@ -171,7 +171,7 @@ export default function App() {
             <div className="flex-1 grid grid-cols-2 gap-4 w-full">
               {[
                 { city: 'Tokyo', country: 'Japan', emoji: '🗼', color: '#FF8A3D' },
-                { city: 'Paris', country: 'France', emoji: '🗼', color: '#2F6BFF' },
+                { city: 'Paris', country: 'France', emoji: '🗼', color: '#2EC4B6' },
                 { city: 'Nairobi', country: 'Kenya', emoji: '🌅', color: '#2EC4B6' },
                 { city: 'New York', country: 'USA', emoji: '🗽', color: '#FF8A3D' },
               ].map(d => (
@@ -203,8 +203,8 @@ export default function App() {
       {/* ── HOW IT WORKS ── */}
       <section id="about" className="w-full px-8 md:px-16 py-20">
         <div className="text-center mb-14">
-          <h2 className="text-4xl font-extrabold text-navy mb-4">How it works</h2>
-          <p className="text-navy/60 max-w-md mx-auto">Simple enough to use mid-trip, powerful enough to capture every detail.</p>
+          <h2 className="text-4xl font-extrabold text-navy dark:text-cream mb-4">How it works</h2>
+          <p className="text-navy/60 dark:text-cream/60 max-w-md mx-auto">Simple enough to use mid-trip, powerful enough to capture every detail.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {/* Connector line (desktop) */}
@@ -224,8 +224,8 @@ export default function App() {
                   {s.step.slice(1)}
                 </span>
               </div>
-              <h3 className="text-lg font-bold text-navy">{s.title}</h3>
-              <p className="text-navy/60 text-sm">{s.desc}</p>
+              <h3 className="text-lg font-bold text-navy dark:text-cream">{s.title}</h3>
+              <p className="text-navy/60 dark:text-cream/60 text-sm">{s.desc}</p>
             </div>
           ))}
         </div>

@@ -22,4 +22,5 @@
 -My wishlist
 -Destinations with filtering
 -Trip Diary with entry form + search 
+-Light + Dark Mode 
 

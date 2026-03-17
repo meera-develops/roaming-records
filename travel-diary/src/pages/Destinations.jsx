@@ -23,8 +23,8 @@ export default function Destinations() {
 
   return (
     <main className="w-full px-8 md:px-16 py-12">
-      <h1 className="text-4xl font-extrabold text-navy mb-2">Explore Destinations</h1>
-      <p className="text-navy/60 mb-8">Discover places around the world and build your wishlist.</p>
+      <h1 className="text-4xl font-extrabold text-navy dark:text-cream mb-2">Explore Destinations</h1>
+      <p className="text-navy/60 dark:text-cream/60 mb-8">Discover places around the world and build your wishlist.</p>
 
       {/* Filter buttons */}
       <div className="flex flex-wrap gap-2 mb-8">
@@ -35,7 +35,7 @@ export default function Destinations() {
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors cursor-pointer ${
               activeContinent === c
                 ? 'bg-orange text-white shadow-sm'
-                : 'border-2 border-navy/20 hover:border-sky text-navy'
+                : 'border-2 border-navy/20 dark:border-cream/20 hover:border-sky text-navy dark:text-cream'
             }`}
           >
             {c}
@@ -50,12 +50,12 @@ export default function Destinations() {
           return (
             <div
               key={dest.id}
-              className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 shadow-md border border-white/80 flex flex-col items-center gap-2"
+              className="bg-white/70 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-5 shadow-md border border-white/80 dark:border-white/10 flex flex-col items-center gap-2"
             >
               <span className="text-4xl">{dest.emoji}</span>
               <div className="text-center">
-                <p className="font-bold text-navy">{dest.city}</p>
-                <p className="text-sm text-navy/60">{dest.country}</p>
+                <p className="font-bold text-navy dark:text-cream">{dest.city}</p>
+                <p className="text-sm text-navy/60 dark:text-cream/60">{dest.country}</p>
               </div>
               <button
                 onClick={() => !inWishlist && handleAdd(dest)}

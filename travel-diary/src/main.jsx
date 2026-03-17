@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
+import { DarkModeProvider } from './context/DarkModeContext.jsx'
 import Layout from './components/Layout.jsx'
 import App from './App.jsx'
 import SignIn from './pages/SignIn.jsx'
@@ -13,6 +14,7 @@ import Wishlist from './pages/Wishlist.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <DarkModeProvider>
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
@@ -26,5 +28,6 @@ createRoot(document.getElementById('root')).render(
         </Route>
       </Routes>
     </BrowserRouter>
+    </DarkModeProvider>
   </StrictMode>,
 )
