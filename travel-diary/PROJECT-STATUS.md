@@ -14,6 +14,12 @@
 
 ## Next Steps
 -Image upload for trip diary 
+-Light/Dark Mode 
 -Add button to say I visited to destinations wishlist 
 -Add User Authentication
--Populate website with cities 
+
+## Built Features 
+-My wishlist
+-Destinations with filtering
+-Trip Diary with entry form + search 
+
