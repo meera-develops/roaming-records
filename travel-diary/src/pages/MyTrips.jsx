@@ -161,6 +161,7 @@ export default function MyTrips() {
   }
 
   const displayed = trips
+    .filter(t => t.id !== editingId)
     .filter(t => t.city.toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => {
       if (sort === 'newest') return new Date(b.dateArrived) - new Date(a.dateArrived)
