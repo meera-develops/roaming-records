@@ -1,6 +1,6 @@
 export const DESTINATIONS = [
   { id: 'd1',  city: 'Tokyo',          country: 'Japan',        continent: 'Asia',     emoji: '🗼' },
-  { id: 'd2',  city: 'Kyoto',          country: 'Japan',        continent: 'Asia',     emoji: '⛩️' },
+  { id: 'd2',  city: 'Dubai',           country: 'UAE',          continent: 'Asia',     emoji: '🐪' },
   { id: 'd3',  city: 'Bangkok',        country: 'Thailand',     continent: 'Asia',     emoji: '🛕' },
   { id: 'd4',  city: 'Bali',           country: 'Indonesia',    continent: 'Asia',     emoji: '🌺' },
   { id: 'd5',  city: 'Paris',          country: 'France',       continent: 'Europe',   emoji: '🗼' },
@@ -19,6 +19,16 @@ export const DESTINATIONS = [
   { id: 'd18', city: 'Melbourne',      country: 'Australia',    continent: 'Australia',  emoji: '☕' },
   { id: 'd19', city: 'Auckland',       country: 'New Zealand',  continent: 'Australia',  emoji: '🌿' },
   { id: 'd20', city: 'Fiji',           country: 'Fiji',         continent: 'Australia',  emoji: '🏝️' },
+  { id: 'd21', city: 'Shanghai',       country: 'China',        continent: 'Asia',       emoji: '🏙️' },
+  { id: 'd22', city: 'New Delhi',      country: 'India',        continent: 'Asia',       emoji: '🪷' },
+  { id: 'd23', city: 'London',         country: 'UK',           continent: 'Europe',     emoji: '🎡' },
+  { id: 'd24', city: 'Madrid',         country: 'Spain',        continent: 'Europe',     emoji: '🥘' },
+  { id: 'd25', city: 'Panama City',    country: 'Panama',       continent: 'Americas',   emoji: '🚢' },
+  { id: 'd26', city: 'Los Angeles',    country: 'USA',          continent: 'Americas',   emoji: '🎬' },
+  { id: 'd27', city: 'Johannesburg',   country: 'South Africa', continent: 'Africa',     emoji: '💎' },
+  { id: 'd28', city: 'Harare',         country: 'Zimbabwe',     continent: 'Africa',     emoji: '🇿🇼' },
+  { id: 'd29', city: 'Wellington',     country: 'New Zealand',  continent: 'Australia',  emoji: '🌊' },
+  { id: 'd30', city: 'Bora Bora',      country: 'French Polynesia', continent: 'Australia', emoji: '🌸' },
 ]
 
 export const CONTINENTS = ['All', 'Asia', 'Europe', 'Americas', 'Africa', 'Australia']
