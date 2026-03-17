@@ -3,12 +3,20 @@ import { getTrips, saveTrip, deleteTrip, getPrefs, setPrefs } from '../utils/sto
 
 const CONTINENTS = ['Asia', 'Europe', 'Americas', 'Africa', 'Oceania', 'Other']
 
+function formatDate(str) {
+  if (!str) return ''
+  const [year, month, day] = str.split('-')
+  const months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.']
+  return `${months[parseInt(month, 10) - 1]} ${parseInt(day, 10)}, ${year}`
+}
+
 const EMPTY_FORM = {
   city: '',
   country: '',
   continent: 'Asia',
   emoji: '',
-  dateVisited: '',
+  dateArrived: '',
+  dateDeparted: '',
   notes: '',
   rating: 3,
 }
@@ -42,7 +50,7 @@ function TripCard({ trip, view, onEdit, onDelete }) {
             <span className="font-bold text-navy text-lg">{trip.city}</span>
             <span className="text-navy/60 text-sm">{trip.country}</span>
             <span className="text-navy/40 text-xs">·</span>
-            <span className="text-navy/60 text-xs">{trip.dateVisited}</span>
+            <span className="text-navy/60 text-xs">{formatDate(trip.dateArrived)}{trip.dateDeparted ? ` → ${formatDate(trip.dateDeparted)}` : ''}</span>
           </div>
           <div className="text-orange text-sm">{stars}</div>
           {trip.notes && <p className="text-navy/60 text-sm mt-1 truncate">{trip.notes}</p>}
@@ -63,7 +71,7 @@ function TripCard({ trip, view, onEdit, onDelete }) {
     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 shadow-md border border-white/80 flex flex-col gap-2">
       <div className="flex items-center justify-between">
         <span className="text-3xl">{trip.emoji || '📍'}</span>
-        <span className="text-xs text-navy/40">{trip.dateVisited}</span>
+        <span className="text-xs text-navy/40">{formatDate(trip.dateArrived)}{trip.dateDeparted ? ` → ${formatDate(trip.dateDeparted)}` : ''}</span>
       </div>
       <div>
         <p className="font-bold text-navy text-lg leading-tight">{trip.city}</p>
@@ -112,7 +120,8 @@ export default function MyTrips() {
       country: trip.country,
       continent: trip.continent,
       emoji: trip.emoji || '',
-      dateVisited: trip.dateVisited,
+      dateArrived: trip.dateArrived,
+      dateDeparted: trip.dateDeparted || '',
       notes: trip.notes || '',
       rating: trip.rating,
     })
@@ -154,8 +163,8 @@ export default function MyTrips() {
   const displayed = trips
     .filter(t => t.city.toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => {
-      if (sort === 'newest') return new Date(b.dateVisited) - new Date(a.dateVisited)
-      if (sort === 'oldest') return new Date(a.dateVisited) - new Date(b.dateVisited)
+      if (sort === 'newest') return new Date(b.dateArrived) - new Date(a.dateArrived)
+      if (sort === 'oldest') return new Date(a.dateArrived) - new Date(b.dateArrived)
       if (sort === 'az')     return a.city.localeCompare(b.city)
       if (sort === 'rating') return b.rating - a.rating
       return 0
@@ -244,13 +253,18 @@ export default function MyTrips() {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-navy mb-1">Emoji (optional)</label>
+              <label className="block text-sm font-semibold text-navy mb-1">Emoji <span className="text-navy/40 font-normal">(optional)</span></label>
               <input name="emoji" value={formData.emoji} onChange={handleChange} placeholder="e.g. 🗼"
                 className="border border-navy/20 rounded-xl px-4 py-2.5 bg-white text-navy focus:outline-none focus:ring-2 focus:ring-sky w-full" />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-navy mb-1">Date Visited *</label>
-              <input required type="date" name="dateVisited" value={formData.dateVisited} onChange={handleChange}
+              <label className="block text-sm font-semibold text-navy mb-1">Date Arrived *</label>
+              <input required type="date" name="dateArrived" value={formData.dateArrived} onChange={handleChange}
+                className="border border-navy/20 rounded-xl px-4 py-2.5 bg-white text-navy focus:outline-none focus:ring-2 focus:ring-sky w-full" />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-navy mb-1">Date Departed <span className="text-navy/40 font-normal">(optional)</span></label>
+              <input type="date" name="dateDeparted" value={formData.dateDeparted} onChange={handleChange}
                 className="border border-navy/20 rounded-xl px-4 py-2.5 bg-white text-navy focus:outline-none focus:ring-2 focus:ring-sky w-full" />
             </div>
             <div>
