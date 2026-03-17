@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import Vinyl from './Vinyl'
 import { useDarkMode } from '../context/DarkModeContext'
+import { MoonIcon } from '@heroicons/react/24/solid'
 
 function DarkModeToggle({ dark, onToggle }) {
   return (
@@ -13,9 +14,11 @@ function DarkModeToggle({ dark, onToggle }) {
       style={{ backgroundColor: dark ? '#2F6BFF' : '#d1d5db' }}
     >
       <span
-        className="inline-block w-4 h-4 bg-white rounded-full shadow transition-transform duration-300"
-        style={{ transform: dark ? 'translateX(1.375rem)' : 'translateX(0.25rem)' }}
-      />
+        className="inline-flex items-center justify-center w-5 h-5 bg-white rounded-full shadow transition-transform duration-300"
+        style={{ transform: dark ? 'translateX(1.375rem)' : 'translateX(0.125rem)' }}
+      >
+        <MoonIcon className={`w-3 h-3 ${dark ? 'text-sky' : 'text-navy/50'}`} />
+      </span>
     </button>
   )
 }
