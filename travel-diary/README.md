@@ -12,4 +12,4 @@ Roaming Records will be fully resposive and deployed on Vercel.
 
 ## Tech Stack
 
-Roaming Records is being built with React JS and Tailwind CSS. Database is still being decided. 
+Roaming Records is being built with React JS and Tailwind CSS. Database is still being decided, either Firebase or Supabase. 
