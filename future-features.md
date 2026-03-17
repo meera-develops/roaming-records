@@ -15,7 +15,6 @@
 - **Trip sharing** — generate a shareable link for a specific trip
 
 ## UI / Polish
-- **Dark mode** — navy/cream palette translates well
 - **Animated page transitions** — smooth fade/slide between routes
 - **"On this day" section** — surface a past trip logged on today's date
 
@@ -25,5 +24,6 @@
 
 ## High Priority (most impactful for project)
 1. Add trip form
+3. Allow for image upload to travel diary 
 2. Search/filter on My Trips
 3. Trip stats dashboard
