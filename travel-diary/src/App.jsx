@@ -1,31 +1,5 @@
 import './App.css'
-
-/* ── Decorative vinyl disc ── */
-function Vinyl({ size = 120, className = '' }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 120 120"
-      className={className}
-      aria-hidden="true"
-    >
-      {/* Outer groove ring */}
-      <circle cx="60" cy="60" r="58" fill="#1E2A44" />
-      <circle cx="60" cy="60" r="54" fill="none" stroke="#2a3a5c" strokeWidth="1.5" />
-      <circle cx="60" cy="60" r="48" fill="none" stroke="#2a3a5c" strokeWidth="1" />
-      <circle cx="60" cy="60" r="42" fill="none" stroke="#2a3a5c" strokeWidth="1" />
-      <circle cx="60" cy="60" r="36" fill="none" stroke="#2a3a5c" strokeWidth="1" />
-      {/* Label */}
-      <circle cx="60" cy="60" r="22" fill="#FF8A3D" />
-      <circle cx="60" cy="60" r="16" fill="#e07030" />
-      <text x="60" y="56" textAnchor="middle" fill="#FFF6EE" fontSize="6" fontWeight="bold">ROAMING</text>
-      <text x="60" y="65" textAnchor="middle" fill="#FFF6EE" fontSize="6" fontWeight="bold">RECORDS</text>
-      {/* Center hole */}
-      <circle cx="60" cy="60" r="4" fill="#1E2A44" />
-    </svg>
-  )
-}
+import Vinyl from './components/Vinyl'
 
 /* ── Dotted flight path SVG ── */
 function FlightPath({ className = '' }) {
@@ -74,32 +48,7 @@ function FeatureCard({ icon, title, desc, delay = '0ms' }) {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-cream text-navy overflow-x-hidden">
-
-      {/* ── NAV ── */}
-      <nav className="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-navy/10 px-8 md:px-16 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Vinyl size={36} className="animate-spin-slow" />
-            <span className="text-xl font-extrabold tracking-tight text-navy">
-              Roaming <span className="text-orange">Records</span>
-            </span>
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-navy/70">
-            <a href="#features" className="hover:text-orange transition-colors">Features</a>
-            <a href="#destinations" className="hover:text-orange transition-colors">Destinations</a>
-            <a href="#about" className="hover:text-orange transition-colors">About</a>
-          </div>
-          <div className="flex items-center gap-3">
-            <button className="hidden sm:block text-sm font-medium text-navy hover:text-sky transition-colors cursor-pointer">
-              Sign In
-            </button>
-            <button className="bg-orange hover:bg-[#e07030] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors shadow-sm cursor-pointer">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </nav>
+    <div>
 
       {/* ── HERO ── */}
       <section className="relative w-full px-8 md:px-16 pt-20 pb-12 md:pt-28 md:pb-16 flex flex-col md:flex-row items-center gap-12">
@@ -298,21 +247,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer className="bg-navy text-cream/50 py-10 px-8 md:px-16">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-          <div className="flex items-center gap-2 font-semibold text-cream">
-            <Vinyl size={24} />
-            <span>Roaming Records</span>
-          </div>
-          <p>Built with React &amp; Tailwind CSS · Fictious website created for class</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-orange transition-colors">Privacy</a>
-            <a href="#" className="hover:text-orange transition-colors">Terms</a>
-            <a href="#" className="hover:text-orange transition-colors">Contact</a>
-          </div>
-        </div>
-      </footer>
 
     </div>
   )
