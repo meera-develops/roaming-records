@@ -4,8 +4,9 @@
 -Selected Theme for the Website 
 -Built Landing Page 
 -Identifying Purpose of Site
+-Implemented React Router to handle multi-page navigation
 
 ## Next Steps
--Implement React Router to set up other pages 
+
 -Add User Authentication
 -Populate website with cities 

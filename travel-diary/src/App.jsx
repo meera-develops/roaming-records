@@ -155,7 +155,7 @@ export default function App() {
                   { name: 'Asia', emoji: '🏯' },
                   { name: 'Americas', emoji: '🗽' },
                   { name: 'Africa', emoji: '🦁' },
-                  { name: 'Oceania', emoji: '🦘' },
+                  { name: 'Australia', emoji: '🦘' },
                 ].map(c => (
                   <button
                     key={c.name}

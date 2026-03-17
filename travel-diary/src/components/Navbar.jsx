@@ -16,6 +16,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-navy/70">
           <a href="#features" className="hover:text-orange transition-colors">Features</a>
           <button onClick={() => navigate('/destinations')} className="hover:text-orange transition-colors cursor-pointer">Destinations</button>
+          <button onClick={() => navigate('/my-trips')} className="hover:text-orange transition-colors cursor-pointer">My Trips</button>
           <button onClick={() => navigate('/about')} className="hover:text-orange transition-colors cursor-pointer">About</button>
         </div>
         <div className="flex items-center gap-3">

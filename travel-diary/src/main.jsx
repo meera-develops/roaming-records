@@ -8,6 +8,7 @@ import SignIn from './pages/SignIn.jsx'
 import GetStarted from './pages/GetStarted.jsx'
 import Destinations from './pages/Destinations.jsx'
 import About from './pages/About.jsx'
+import MyTrips from './pages/MyTrips.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/destinations" element={<Destinations />} />
           <Route path="/about" element={<About />} />
+          <Route path="/my-trips" element={<MyTrips />} />
         </Route>
       </Routes>
     </BrowserRouter>
