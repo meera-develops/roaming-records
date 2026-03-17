@@ -19,7 +19,7 @@ export default function Wishlist() {
     <main className="w-full px-8 md:px-16 py-12">
       <div className="flex items-center justify-between mb-2">
         <h1 className="text-4xl font-extrabold text-navy dark:text-cream">My Wishlist</h1>
-        <Link to="/destinations" className="flex items-center gap-1 bg-orange hover:bg-[#e07030] text-white text-sm font-extrabold px-5 py-2.5 rounded-full transition-colors shadow-sm">
+        <Link to="/destinations" className="flex items-center gap-1 bg-sky hover:bg-[#1a55e0] text-white text-sm font-extrabold px-5 py-2.5 rounded-full transition-colors shadow-sm">
           <PlusIcon className="w-4 h-4" /> Add Cities
         </Link>
       </div>
@@ -41,7 +41,7 @@ export default function Wishlist() {
               </div>
               <button
                 onClick={() => handleRemove(item.id)}
-                className="mt-auto text-red-500 hover:text-red-400 text-sm font-medium transition-colors cursor-pointer"
+                className="mt-auto bg-red-500 hover:bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full transition-colors cursor-pointer"
               >
                 Remove
               </button>

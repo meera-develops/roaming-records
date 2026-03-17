@@ -56,10 +56,10 @@ function TripCard({ trip, view, onEdit, onDelete }) {
           {trip.notes && <p className="text-navy/60 dark:text-cream/60 text-sm mt-1 truncate">{trip.notes}</p>}
         </div>
         <div className="flex items-center gap-3 shrink-0">
-          <button onClick={onEdit} className="border-2 border-navy/20 dark:border-cream/20 hover:border-sky text-navy dark:text-cream font-semibold px-5 py-2.5 rounded-full transition-colors text-sm cursor-pointer">
+          <button onClick={onEdit} className="bg-teal hover:bg-[#25a99d] text-white font-semibold px-5 py-2.5 rounded-full transition-colors text-sm cursor-pointer">
             Edit
           </button>
-          <button onClick={onDelete} className="text-red-500 hover:text-red-400 text-sm font-medium transition-colors cursor-pointer">
+          <button onClick={onDelete} className="bg-red-500 hover:bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full transition-colors cursor-pointer">
             Delete
           </button>
         </div>
@@ -80,10 +80,10 @@ function TripCard({ trip, view, onEdit, onDelete }) {
       <div className="text-orange text-sm">{stars}</div>
       {trip.notes && <p className="text-navy/60 dark:text-cream/60 text-sm line-clamp-2">{trip.notes}</p>}
       <div className="flex gap-2 mt-auto pt-2">
-        <button onClick={onEdit} className="border-2 border-navy/20 dark:border-cream/20 hover:border-sky text-navy dark:text-cream font-semibold px-4 py-2 rounded-full transition-colors text-sm cursor-pointer">
+        <button onClick={onEdit} className="bg-teal hover:bg-[#25a99d] text-white font-semibold px-4 py-2 rounded-full transition-colors text-sm cursor-pointer">
           Edit
         </button>
-        <button onClick={onDelete} className="text-red-500 hover:text-red-400 text-sm font-medium transition-colors cursor-pointer">
+        <button onClick={onDelete} className="bg-red-500 hover:bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full transition-colors cursor-pointer">
           Delete
         </button>
       </div>
@@ -225,7 +225,7 @@ export default function MyTrips() {
 
         <button
           onClick={() => { setShowForm(s => !s); setEditingId(null); setFormData(EMPTY_FORM) }}
-          className="bg-orange hover:bg-[#e07030] text-white font-semibold px-5 py-2.5 rounded-full transition-colors shadow-sm cursor-pointer md:ml-auto"
+          className="bg-sky hover:bg-[#1a55e0] text-white font-semibold px-5 py-2.5 rounded-full transition-colors shadow-sm cursor-pointer md:ml-auto"
         >
           {showForm && !editingId ? 'Cancel' : '+ Add Trip'}
         </button>
