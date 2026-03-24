@@ -15,7 +15,7 @@ Roaming Records is responsive for both desktop and mobile and has been deployed 
 Roaming Records is being built with React JS and Tailwind CSS.
 
 ## Set Up Instructions
-To set up Roaming Records, the process is fairly straightforward. First clone the repo to download it to your device. From there you will have to navigate one folder down and click on travel-diary where the React app is actually contained because the repo is committed from the parent folder. 
+To set up Roaming Records, the process is fairly straightforward. First clone the repo so it exists on your device. From there you will have to navigate one folder down and click on travel-diary where the React app is actually contained because the repo is committed from the parent folder. 
 
 Upon navigating into travel-diary, run npm install and npm run dev to get the application running on localhost on your machine. 
 
