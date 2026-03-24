@@ -99,6 +99,7 @@ export default function MyTrips() {
   const [showForm, setShowForm] = useState(false)
   const [formData, setFormData] = useState(EMPTY_FORM)
   const [editingId, setEditingId] = useState(null)
+  const [dateError, setDateError] = useState('')
   const formRef = useRef(null)
 
   useEffect(() => {
@@ -137,6 +138,16 @@ export default function MyTrips() {
 
   function handleSubmit(e) {
     e.preventDefault()
+    const today = new Date().toISOString().split('T')[0]
+    if (formData.dateArrived > today) {
+      setDateError('Arrival date cannot be in the future.')
+      return
+    }
+    if (formData.dateDeparted && formData.dateDeparted < formData.dateArrived) {
+      setDateError('Departure date cannot be before arrival date.')
+      return
+    }
+    setDateError('')
     if (editingId) {
       const existing = trips.find(t => t.id === editingId)
       saveTrip({ ...existing, ...formData })
@@ -154,6 +165,7 @@ export default function MyTrips() {
     setFormData(EMPTY_FORM)
     setEditingId(null)
     setShowForm(false)
+    setDateError('')
   }
 
   function handleChange(e) {
@@ -269,6 +281,9 @@ export default function MyTrips() {
               <input type="date" name="dateDeparted" value={formData.dateDeparted} onChange={handleChange}
                 className="border border-navy/20 dark:border-cream/20 rounded-xl px-4 py-2.5 bg-white dark:bg-dark-surface text-navy dark:text-cream focus:outline-none focus:ring-2 focus:ring-sky w-full" />
             </div>
+            {dateError && (
+              <p className="md:col-span-2 text-red-500 text-sm font-medium">{dateError}</p>
+            )}
             <div>
               <label className="block text-sm font-semibold text-navy dark:text-cream mb-1">Rating</label>
               <StarRating value={formData.rating} onChange={v => setFormData(prev => ({ ...prev, rating: v }))} />
