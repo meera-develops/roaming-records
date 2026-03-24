@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { getTrips, saveTrip, deleteTrip, getPrefs, setPrefs } from '../utils/storage'
 
-const CONTINENTS = ['Asia', 'Europe', 'Americas', 'Africa', 'Oceania', 'Other']
+const CONTINENTS = ['Asia', 'Europe', 'Americas', 'Africa', 'Australia']
 
 function formatDate(str) {
   if (!str) return ''

@@ -115,7 +115,7 @@ export default function App() {
           <FeatureCard
             icon="📖"
             title="Travel Log"
-            desc="Record past trips with photos, notes, dates, and memories. Your personal travel journal, always at hand."
+            desc="Record past trips with notes, dates, and memories. Your personal travel journal, always at hand."
             delay="0ms"
           />
           <FeatureCard
@@ -238,7 +238,7 @@ export default function App() {
             Ready to press <span className="text-orange">play</span> on your next trip?
           </h2>
           <p className="text-cream/65 max-w-lg">
-            Join Roaming Records and start documenting the soundtrack of your travels today.
+            Use Roaming Records to start documenting the soundtrack of your travels today.
           </p>
           <button onClick={() => navigate('/destinations')} className="bg-orange hover:bg-[#e07030] text-white font-bold px-10 py-4 rounded-full text-lg transition-colors cursor-pointer shadow-xl">
             Explore Destinations
