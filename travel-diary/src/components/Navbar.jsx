@@ -41,16 +41,16 @@ export default function Navbar() {
           <button onClick={() => navigate('/my-trips')} className="hover:text-orange transition-colors cursor-pointer">My Trips</button>
           <button onClick={() => navigate('/wishlist')} className="hover:text-orange transition-colors cursor-pointer">Wishlist</button>
           {/* <button onClick={() => navigate('/about')} className="hover:text-orange transition-colors cursor-pointer">About</button> */}
-        </div>
-        <div className="flex items-center gap-3">
           <DarkModeToggle dark={dark} onToggle={toggle} />
+        </div>
+        {/* <div className="flex items-center gap-3">
           <button onClick={() => navigate('/sign-in')} className="hidden sm:block text-sm font-medium text-navy dark:text-cream hover:text-sky transition-colors cursor-pointer">
             Sign In
           </button>
           <button onClick={() => navigate('/get-started')} className="bg-orange hover:bg-[#e07030] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors shadow-sm cursor-pointer">
             Get Started
           </button>
-        </div>
+        </div> */}
       </div>
     </nav>
   )

@@ -1,4 +1,5 @@
 import './App.css'
+import { useNavigate } from 'react-router-dom'
 import Vinyl from './components/Vinyl'
 
 /* ── Dotted flight path SVG ── */
@@ -47,6 +48,7 @@ function FeatureCard({ icon, title, desc, delay = '0ms' }) {
 
 
 export default function App() {
+  const navigate = useNavigate()
   return (
     <div>
 
@@ -211,9 +213,9 @@ export default function App() {
           <div className="hidden md:block absolute top-8 left-1/3 right-1/3 h-0.5 bg-linear-to-r from-orange to-sky" />
 
           {[
-            { step: '01', icon: '🔐', title: 'Create your profile', desc: 'Sign up in seconds and set up your traveler identity.' },
-            { step: '02', icon: '📍', title: 'Log your trips', desc: 'Add past adventures or pin new places to your wishlist.' },
-            { step: '03', icon: '🌐', title: 'Explore & connect', desc: 'Discover popular destinations and connect with other explorers.' },
+            { step: '01', icon: '🌍', title: 'Explore Destinations', desc: 'Browse curated destinations from around the world.' },
+            { step: '02', icon: '📍', title: 'Log your trips', desc: 'Add past adventures and document your travel memories.' },
+            { step: '03', icon: '✈️', title: 'Build your Wishlist', desc: 'Pin places you want to visit and plan future trips.' },
           ].map(s => (
             <div key={s.step} className="flex flex-col items-center text-center gap-4">
               <div className="relative">
@@ -241,8 +243,8 @@ export default function App() {
           <p className="text-cream/65 max-w-lg">
             Join Roaming Records and start documenting the soundtrack of your travels today.
           </p>
-          <button className="bg-orange hover:bg-[#e07030] text-white font-bold px-10 py-4 rounded-full text-lg transition-colors shadow-xl">
-            Create Free Account
+          <button onClick={() => navigate('/destinations')} className="bg-orange hover:bg-[#e07030] text-white font-bold px-10 py-4 rounded-full text-lg transition-colors cursor-pointer shadow-xl">
+            Explore Destinations
           </button>
         </div>
       </section>
