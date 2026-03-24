@@ -1,43 +1,34 @@
 # Transcript Highlights
 
----
+**1. Vercel Deployment Challenges (Chat 1)**
+`#debugging` `#iterative-development`
 
-**1. Three sequential Vercel deployment failures (Chat 1)**
-`#debugging`
-
-Three distinct root causes, one after another: `vite` in `devDependencies`, a hardcoded Vercel dashboard command overriding `vercel.json`, then the root directory pointing to the repo root instead of `travel-diary/`. Each fix revealed the next problem, making for a layered debugging narrative.
+I deployed early in development and hit a cascade of config issues — `vite` in the wrong dependencies, a hardcoded build command overriding my `vercel.json`, and the root directory pointing one level too high. Each fix revealed the next problem, teaching me that deployment debugging is iterative and that small config details have real consequences.
 
 ---
 
-**2. Routes in `main.jsx` vs `App.jsx` (Chat 2)**
-`#human-judging-ai-output` `#iterative-development`
+**2. Routes live in `main.jsx` vs `App.jsx` (Chat 2)**
+`#human-judgment` `#iterative-development`
 
-The user pushed back on where the routes lived. Rather than just moving them, they wanted to understand *why* the decision was made — and the assistant explained the tradeoff clearly. The user chose to leave it as-is after understanding. A good example of a conversation becoming a learning moment rather than just a task.
+After Claude placed the routes in `main.jsx` instead of `app.jsx` as I have usually done, I pushed back and asked for reasoning before accepting the decision. Claude offered to move the routes into `app.jsx`, but after understanding the rationale I chose to keep them in `main.jsx` — reflecting my learning experience through questions and pushing back against AI to understand deeper.
 
 ---
 
 **3. Execution prompt referencing an existing plan doc (Chat 3)**
-`#good-prompt-quality` `#planning-feature`
+`#good-prompt-quality` `#planning-and-architecture`
 
-The opening prompt of Chat 3: *"Read the implementation plan in plan1.md and start executing once project requirements and codebase are understood. Prioritize asking questions over making assumptions."* This prompt references a pre-written artifact, scopes the task to understanding before acting, and sets an explicit behavioral priority — leading to a clean 6-step implementation with no back-and-forth clarification needed.
-
----
-
-**4. Explaining the "disappearing edit entry" line (Chat 3)**
-`#human-judging-ai-output`
-
-After implementing `.filter(t => t.id !== editingId)`, the user came back and asked specifically to explain that line. It was a small feature but the user wanted to understand the mechanism, not just use it.
+I started Chat 3 by pointing Claude directly to a pre-written plan doc within the folder and instructing it to plan and understand the project and requirements fully before writing code. I also encouraged it to ask questions rather than making assumptions when building. The result was a clean 6-step implementation with no clarification needed, reinforcing that a well-structured prompt with existing context produces significantly better output.
 
 ---
 
-**5. "Let's make a plan first before editing code" (Chat 6)**
-`#planning-feature` `#human-judging-ai-output`
+**4. "Planning and reviewing options before building" (Chat 6)**
+`#planning-feature` `#human-judgment`
 
-Before updating the "How It Works" section (which referenced sign-up/auth that had been removed), the user explicitly asked to plan before writing any code. The assistant proposed three reframing options; the user evaluated them and chose Option A — repositioning the steps around the app's core features. A clear case of the user directing the process and selecting from AI-generated alternatives.
+Before updating the "How It Works" section on the home page, I asked Claude to show me options before immediately updating the code and then I chose from the three alternatives it generated. Slowing down the AI and getting it to plan first kept me in control of the decisions and produced a project directly influenced by me.
 
 ---
 
-**6. Search lingering after a successful trip add (Chat 6)**
-`#human-judging-ai-output` `#iterative-development`
+**5. Search lingering after a successful trip add (Chat 6)**
+`#human-judgment` `#iterative-development`
 
-After submitting a new trip, the search field kept showing the old query, so the new entry didn't appear in filtered results — making the user think the save had failed. The fix was a single `setSearch('')` in `handleSubmit`, but the bug itself is a strong UX catch: the feature worked correctly, but the UI communicated failure. The user identified this by observing behavior, not an error message.
+After adding a trip, the search field kept showing the old query, making the new entry invisible in filtered results and causing the user to believe adding the new trip had failed. The fix was a single `setSearch('')` line, but catching it through testing and interacting with the website showed me that a working feature can still communicate failure through its UI. This is why it's so important to test every feature and small detail by hand, rather than assuming it just works (especially if no error messages are visible).

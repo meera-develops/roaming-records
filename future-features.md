@@ -22,7 +22,7 @@
 - **Weather widget** on destination cards (free weather API)
 - **Currency converter** — useful context when viewing a destination
 
-## High Priority (most impactful for project)
+## Most Impactful 
 1. Add trip form
 3. Allow for image upload to travel diary 
 2. Search/filter on My Trips
