@@ -22,8 +22,6 @@ Upon navigating into travel-diary, run npm install and npm run dev to get the ap
 ## Known Bugs/Limitations
 User authentication has not been added to Roaming Records yet. This feature could take the app to the next-level and add social interaction to the platform. 
 
-The trip entry form doesn't have data validation. The user could potentially put in illogical dates, for example saying they departed a city at an earlier date than they arrived. 
-
 There is no feedback upon adding a trip using the trip entry form on 'My Trips'. 
 
 ## What I learned 
