@@ -1,15 +1,30 @@
 # Roaming Records
 
-Roaming Records is a website designed to keep track of your trips and vacations and plan future ones all in one place. The app provides a log for users to store trip information and upload pictures. The website also features popular travel destinations so users can add it to their wishlist of places to visit. The website allows for user authentication so users can store saved cities to their profile and connect with others on the platform. Destinations can be filtered/organized by continent too. 
+Roaming Records is a website designed to keep track of your trips and vacations and plan future ones all in one place. The app provides a log for users to store trip information and upload pictures. The website also features popular travel destinations so users can add it to their wishlist of places to visit. Destinations can be filtered/organized by continent too. The site features light and dark mode as well to practice this concept and allow the user to customize their viewing experience.
 
-Roaming Records will be fully resposive and deployed on Vercel.
+Roaming Records is responsive for both desktop and mobile and has been deployed on Vercel.
 
 ## Features 
 1. Travel Log (past trips)
 2. Travel Wishlist (future trips)   
-3. User Authentication
+3. Light / Dark Mode 
 4. Filtering cities by continent 
 
 ## Tech Stack
 
-Roaming Records is being built with React JS and Tailwind CSS. Database is still being decided, either Firebase or Supabase. 
+Roaming Records is being built with React JS and Tailwind CSS.
+
+## Set Up Instructions
+To set up Roaming Records, the process is fairly straightforward. First clone the repo to download it to your device. From there you will have to navigate one folder down and click on travel-diary where the React app is actually contained because the repo is committed from the parent folder. 
+
+Upon navigating into travel-diary, run npm install and npm run dev to get the application running on localhost on your machine. 
+
+## Known Bugs/Limitations
+User authentication has not been added to Roaming Records yet. This feature could take the app to the next-level and add social interaction to the platform. 
+
+The trip entry form doesn't have data validation. The user could potentially put in illogical dates, for example saying they departed a city at an earlier date than they arrived. 
+
+There is no feedback upon adding a trip using the trip entry form on 'My Trips'. 
+
+## What I learned 
+Working on this project I learned to always check AI's work. Not only for code quality, but also for functionality + UX. The AI may leave buttons that don't navigate anywhere or negelect to update your copy when features change. It is up to the developer/designer to make sure their product matches with the purpose of their website. 

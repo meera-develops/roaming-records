@@ -26,7 +26,7 @@ export default function Wishlist() {
       <p className="text-navy/60 dark:text-cream/60 mb-8">Places you want to visit someday</p>
 
       {wishlist.length === 0 ? (
-        <p className="text-navy/40 dark:text-cream/40 text-lg">Your wishlist is empty. Head to <a href="/destinations" className="text-orange hover:underline">Destinations</a> to add some!</p>
+        <p className="text-navy/40 dark:text-cream/40 text-lg">Your wishlist is empty. Head to <Link to="/destinations" className="text-orange hover:underline">Destinations</Link> to add some!</p>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {wishlist.map(item => (
