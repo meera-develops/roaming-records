@@ -1,6 +1,6 @@
 # Roaming Records
 
-Roaming Records is a website designed to keep track of your trips and vacations and plan future ones all in one place. The app provides a log for users to store trip information and upload pictures. The website also features popular travel destinations so users can add it to their wishlist of places to visit. Destinations can be filtered/organized by continent too. The site features light and dark mode as well to practice this concept and allow the user to customize their viewing experience.
+Roaming Records is a website designed to keep track of your trips and vacations and plan future ones all in one place. The app provides a log for users to store trip information. The website also features popular travel destinations so users can add it to their wishlist of places to visit. Destinations can be filtered/organized by continent too. The site features light and dark mode as well to practice this concept and allow the user to customize their viewing experience.
 
 Roaming Records is responsive for both desktop and mobile and has been deployed on Vercel.
 
