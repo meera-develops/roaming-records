@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { DESTINATIONS, CONTINENTS } from '../data/destinations'
-import { getWishlist, addToWishlist } from '../utils/storage'
+import { getWishlist, addToWishlist, removeFromWishlist } from '../utils/storage'
 
 export default function Destinations() {
   const { state } = useLocation()
@@ -18,8 +18,12 @@ export default function Destinations() {
 
   const wishlistIds = new Set(wishlist.map(w => w.id))
 
-  function handleAdd(dest) {
-    addToWishlist({ id: dest.id, city: dest.city, country: dest.country, continent: dest.continent, emoji: dest.emoji })
+  function handleToggle(dest) {
+    if (wishlistIds.has(dest.id)) {
+      removeFromWishlist(dest.id)
+    } else {
+      addToWishlist({ id: dest.id, city: dest.city, country: dest.country, continent: dest.continent, emoji: dest.emoji })
+    }
     setWishlist(getWishlist())
   }
 
@@ -60,15 +64,19 @@ export default function Destinations() {
                 <p className="text-sm text-navy/60 dark:text-cream/60">{dest.country}</p>
               </div>
               <button
-                onClick={() => !inWishlist && handleAdd(dest)}
-                disabled={inWishlist}
-                className={`mt-auto text-sm font-semibold px-4 py-1.5 rounded-full transition-colors cursor-pointer ${
+                onClick={() => handleToggle(dest)}
+                className={`mt-auto text-sm font-semibold px-4 py-1.5 rounded-full transition-colors cursor-pointer group/btn ${
                   inWishlist
-                    ? 'bg-teal/20 text-teal cursor-default'
+                    ? 'bg-teal/20 text-teal hover:bg-red-100 hover:text-red-500'
                     : 'bg-orange hover:bg-[#e07030] text-white'
                 }`}
               >
-                {inWishlist ? '✓ In wishlist' : '+ Wishlist'}
+                {inWishlist ? (
+                  <>
+                    <span className="group-hover/btn:hidden">✓ In wishlist</span>
+                    <span className="hidden group-hover/btn:inline">✕ Remove</span>
+                  </>
+                ) : '+ Wishlist'}
               </button>
             </div>
           )
