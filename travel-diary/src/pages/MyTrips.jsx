@@ -146,6 +146,7 @@ export default function MyTrips() {
     setFormData(EMPTY_FORM)
     setEditingId(null)
     setShowForm(false)
+    setSearch('')
     refreshTrips()
   }
 

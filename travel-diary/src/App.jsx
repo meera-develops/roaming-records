@@ -1,6 +1,7 @@
 import './App.css'
 import { useNavigate } from 'react-router-dom'
 import Vinyl from './components/Vinyl'
+import { addToWishlist } from './utils/storage'
 
 /* ── Dotted flight path SVG ── */
 function FlightPath({ className = '' }) {
@@ -68,10 +69,10 @@ export default function App() {
             Roaming Records is the travel diary with a groove.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <button className="bg-orange hover:bg-[#e07030] text-white font-semibold px-8 py-4 rounded-full transition-colors shadow-md text-base">
-              Start Your Journey
+            <button onClick={() => navigate('/my-trips')} className="bg-orange hover:bg-[#e07030] text-white font-semibold px-8 py-4 rounded-full transition-colors shadow-md cursor-pointer text-base">
+              Log your Journeys
             </button>
-            <button className="border-2 border-navy/20 dark:border-cream/20 hover:border-sky text-navy dark:text-cream font-semibold px-8 py-4 rounded-full transition-colors text-base">
+            <button onClick={() => navigate('/destinations')} className="border-2 border-navy/20 dark:border-cream/20 hover:border-sky text-navy dark:text-cream font-semibold px-8 py-4 rounded-full cursor-pointer transition-colors text-base">
               Explore Destinations
             </button>
           </div>
@@ -110,7 +111,7 @@ export default function App() {
             Everything you need to document, plan, and share your travels — pressed into one beautifully simple app.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 justify-items-center">
           <FeatureCard
             icon="📖"
             title="Travel Log"
@@ -122,12 +123,6 @@ export default function App() {
             title="Wishlist"
             desc="Curate the destinations on your bucket list. Plan future trips and keep track of places you dream of visiting."
             delay="100ms"
-          />
-          <FeatureCard
-            icon="🔐"
-            title="User Profiles"
-            desc="Create an account to save your cities, connect with fellow travelers, and take your diary anywhere."
-            delay="200ms"
           />
           <FeatureCard
             icon="🌍"
@@ -161,7 +156,8 @@ export default function App() {
                 ].map(c => (
                   <button
                     key={c.name}
-                    className="inline-flex items-center gap-2 border border-cream/20 hover:border-orange hover:text-orange text-cream/70 px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                    onClick={() => navigate('/destinations', { state: { continent: c.name } })}
+                    className="inline-flex items-center gap-2 border border-cream/20 hover:border-orange hover:text-orange text-cream/70 px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer"
                   >
                     {c.emoji} {c.name}
                   </button>
@@ -172,10 +168,10 @@ export default function App() {
             {/* Destination cards grid */}
             <div className="flex-1 grid grid-cols-2 gap-4 w-full">
               {[
-                { city: 'Tokyo', country: 'Japan', emoji: '🗼', color: '#FF8A3D' },
-                { city: 'Paris', country: 'France', emoji: '🗼', color: '#2EC4B6' },
-                { city: 'Nairobi', country: 'Kenya', emoji: '🌅', color: '#2EC4B6' },
-                { city: 'New York', country: 'USA', emoji: '🗽', color: '#FF8A3D' },
+                { id: 'd1',  city: 'Tokyo',    country: 'Japan',   continent: 'Asia',     emoji: '🗼', color: '#FF8A3D' },
+                { id: 'd5',  city: 'Paris',    country: 'France',  continent: 'Europe',   emoji: '🗼', color: '#2EC4B6' },
+                { id: 'd13', city: 'Nairobi',  country: 'Kenya',   continent: 'Africa',   emoji: '🦁', color: '#2EC4B6' },
+                { id: 'd9',  city: 'New York', country: 'USA',     continent: 'Americas', emoji: '🗽', color: '#FF8A3D' },
               ].map(d => (
                 <div
                   key={d.city}
@@ -185,7 +181,8 @@ export default function App() {
                   <div className="font-bold text-cream text-sm">{d.city}</div>
                   <div className="text-cream/50 text-xs">{d.country}</div>
                   <button
-                    className="mt-3 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity"
+                    onClick={() => { addToWishlist({ id: d.id, city: d.city, country: d.country, continent: d.continent, emoji: d.emoji }); navigate('/wishlist') }}
+                    className="mt-3 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
                     style={{ color: d.color }}
                   >
                     + Add to wishlist

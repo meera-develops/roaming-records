@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { DESTINATIONS, CONTINENTS } from '../data/destinations'
 import { getWishlist, addToWishlist } from '../utils/storage'
 
 export default function Destinations() {
-  const [activeContinent, setActiveContinent] = useState('All')
+  const { state } = useLocation()
+  const [activeContinent, setActiveContinent] = useState(state?.continent ?? 'All')
   const [wishlist, setWishlist] = useState([])
 
   useEffect(() => {

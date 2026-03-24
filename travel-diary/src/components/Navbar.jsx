@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Vinyl from './Vinyl'
 import { useDarkMode } from '../context/DarkModeContext'
-import { MoonIcon } from '@heroicons/react/24/solid'
+import { MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 
 function DarkModeToggle({ dark, onToggle }) {
   return (
@@ -26,6 +27,12 @@ function DarkModeToggle({ dark, onToggle }) {
 export default function Navbar() {
   const navigate = useNavigate()
   const { dark, toggle } = useDarkMode()
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  function navTo(path) {
+    navigate(path)
+    setMenuOpen(false)
+  }
 
   return (
     <nav className="sticky top-0 z-50 bg-cream/90 dark:bg-dark-bg/90 backdrop-blur-md border-b border-navy/10 dark:border-cream/10 px-8 md:px-16 py-4">
@@ -36,22 +43,32 @@ export default function Navbar() {
             Roaming <span className="text-orange">Records</span>
           </span>
         </button>
+
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-navy/70 dark:text-cream/70">
           <button onClick={() => navigate('/destinations')} className="hover:text-orange transition-colors cursor-pointer">Destinations</button>
           <button onClick={() => navigate('/my-trips')} className="hover:text-orange transition-colors cursor-pointer">My Trips</button>
           <button onClick={() => navigate('/wishlist')} className="hover:text-orange transition-colors cursor-pointer">Wishlist</button>
-          {/* <button onClick={() => navigate('/about')} className="hover:text-orange transition-colors cursor-pointer">About</button> */}
           <DarkModeToggle dark={dark} onToggle={toggle} />
         </div>
-        {/* <div className="flex items-center gap-3">
-          <button onClick={() => navigate('/sign-in')} className="hidden sm:block text-sm font-medium text-navy dark:text-cream hover:text-sky transition-colors cursor-pointer">
-            Sign In
+
+        {/* Mobile: toggle + hamburger */}
+        <div className="flex md:hidden items-center gap-3">
+          <DarkModeToggle dark={dark} onToggle={toggle} />
+          <button onClick={() => setMenuOpen(o => !o)} className="text-navy dark:text-cream cursor-pointer">
+            {menuOpen ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
           </button>
-          <button onClick={() => navigate('/get-started')} className="bg-orange hover:bg-[#e07030] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors shadow-sm cursor-pointer">
-            Get Started
-          </button>
-        </div> */}
+        </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div className="md:hidden flex flex-col gap-4 pt-4 pb-2 text-sm font-medium text-navy/80 dark:text-cream/80">
+          <button onClick={() => navTo('/destinations')} className="text-left hover:text-orange transition-colors cursor-pointer">Destinations</button>
+          <button onClick={() => navTo('/my-trips')} className="text-left hover:text-orange transition-colors cursor-pointer">My Trips</button>
+          <button onClick={() => navTo('/wishlist')} className="text-left hover:text-orange transition-colors cursor-pointer">Wishlist</button>
+        </div>
+      )}
     </nav>
   )
 }
