@@ -10,6 +10,7 @@ import App from './App.jsx'
 import Destinations from './pages/Destinations.jsx'
 import MyTrips from './pages/MyTrips.jsx'
 import Wishlist from './pages/Wishlist.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
 import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
 
@@ -23,8 +24,8 @@ createRoot(document.getElementById('root')).render(
         <Route element={<Layout />}>
           <Route path="/" element={<App />} />
           <Route path="/destinations" element={<Destinations />} />
-          <Route path="/my-trips" element={<MyTrips />} />
-          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/my-trips" element={<ProtectedRoute><MyTrips /></ProtectedRoute>} />
+          <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Route>
