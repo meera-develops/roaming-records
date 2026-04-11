@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Vinyl from './Vinyl'
 import { useDarkMode } from '../context/DarkModeContext'
+import { useAuth } from '../context/AuthContext'
 import { MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 
 function DarkModeToggle({ dark, onToggle }) {
@@ -27,6 +28,7 @@ function DarkModeToggle({ dark, onToggle }) {
 export default function Navbar() {
   const navigate = useNavigate()
   const { dark, toggle } = useDarkMode()
+  const { currentUser } = useAuth()
   const [menuOpen, setMenuOpen] = useState(false)
 
   function navTo(path) {
@@ -50,6 +52,11 @@ export default function Navbar() {
           <button onClick={() => navigate('/my-trips')} className="hover:text-orange transition-colors cursor-pointer">My Trips</button>
           <button onClick={() => navigate('/wishlist')} className="hover:text-orange transition-colors cursor-pointer">Wishlist</button>
           <DarkModeToggle dark={dark} onToggle={toggle} />
+          {!currentUser && (
+            <button onClick={() => navigate('/login')} className="bg-sky hover:bg-[#1a55e0] text-white text-md font-semibold px-6 py-1.5 rounded-lg transition-colors cursor-pointer">
+              Log In
+            </button>
+          )}
         </div>
 
         {/* Mobile: toggle + hamburger */}
@@ -67,6 +74,9 @@ export default function Navbar() {
           <button onClick={() => navTo('/destinations')} className="text-left hover:text-orange transition-colors cursor-pointer">Destinations</button>
           <button onClick={() => navTo('/my-trips')} className="text-left hover:text-orange transition-colors cursor-pointer">My Trips</button>
           <button onClick={() => navTo('/wishlist')} className="text-left hover:text-orange transition-colors cursor-pointer">Wishlist</button>
+          {!currentUser && (
+            <button onClick={() => navTo('/login')} className="text-left text-sky font-semibold cursor-pointer">Log In</button>
+          )}
         </div>
       )}
     </nav>
