@@ -1,5 +1,11 @@
 # Roaming Records
 
+
+## Updated Description for Week 12 - AI Powered Feature
+I added user authentication to Roaming Records. Users must log in to view their currently saved trips and wishlist, as these have currently become protected routes. I user authentication provided by Firebase to add user accounts via traditional email/password method to my project. It runs like normal. Visit the live site url and create an account to start logging your trips and view your wishlist. 
+
+
+## Midterm Submission
 Roaming Records is a website designed to keep track of your trips and vacations and plan future ones all in one place. The app provides a log for users to store trip information. The website also features popular travel destinations so users can add it to their wishlist of places to visit. Destinations can be filtered/organized by continent too. The site features light and dark mode as well to practice this concept and allow the user to customize their viewing experience.
 
 Roaming Records is responsive for both desktop and mobile and has been deployed on Vercel.
