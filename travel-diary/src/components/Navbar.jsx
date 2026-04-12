@@ -28,7 +28,12 @@ function DarkModeToggle({ dark, onToggle }) {
 export default function Navbar() {
   const navigate = useNavigate()
   const { dark, toggle } = useDarkMode()
-  const { currentUser } = useAuth()
+  const { currentUser, logout } = useAuth()
+
+  async function handleLogout() {
+    await logout()
+    navigate('/')
+  }
   const [menuOpen, setMenuOpen] = useState(false)
 
   function navTo(path) {
@@ -52,7 +57,14 @@ export default function Navbar() {
           <button onClick={() => navigate('/my-trips')} className="hover:text-orange transition-colors cursor-pointer">My Trips</button>
           <button onClick={() => navigate('/wishlist')} className="hover:text-orange transition-colors cursor-pointer">Wishlist</button>
           <DarkModeToggle dark={dark} onToggle={toggle} />
-          {!currentUser && (
+          {currentUser ? (
+            <div className="flex items-center gap-3">
+              <span className="text-xs text-navy/50 dark:text-cream/50">{currentUser.displayName || currentUser.email}</span>
+              <button onClick={handleLogout} className="bg-sky hover:bg-[#1a55e0] text-white text-md font-semibold px-6 py-1.5 rounded-lg transition-colors cursor-pointer">
+                Log Out
+              </button>
+            </div>
+          ) : (
             <button onClick={() => navigate('/login')} className="bg-sky hover:bg-[#1a55e0] text-white text-md font-semibold px-6 py-1.5 rounded-lg transition-colors cursor-pointer">
               Log In
             </button>
@@ -74,8 +86,13 @@ export default function Navbar() {
           <button onClick={() => navTo('/destinations')} className="text-left hover:text-orange transition-colors cursor-pointer">Destinations</button>
           <button onClick={() => navTo('/my-trips')} className="text-left hover:text-orange transition-colors cursor-pointer">My Trips</button>
           <button onClick={() => navTo('/wishlist')} className="text-left hover:text-orange transition-colors cursor-pointer">Wishlist</button>
-          {!currentUser && (
-            <button onClick={() => navTo('/login')} className="text-left text-sky font-semibold cursor-pointer">Log In</button>
+          {currentUser ? (
+            <>
+              <span className="text-xs text-navy/50 dark:text-cream/50">{currentUser.displayName || currentUser.email}</span>
+              <button onClick={handleLogout} className="self-start bg-sky hover:bg-[#1a55e0] text-white font-semibold px-6 py-1.5 rounded-lg transition-colors cursor-pointer">Log Out</button>
+            </>
+          ) : (
+            <button onClick={() => navTo('/login')} className="self-start bg-sky hover:bg-[#1a55e0] text-white font-semibold px-6 py-1.5 rounded-lg transition-colors cursor-pointer">Log In</button>
           )}
         </div>
       )}
